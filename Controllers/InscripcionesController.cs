@@ -102,7 +102,7 @@ namespace u3_aspnetcore.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id, IdAlumno, Carrera")] Inscripcion inscripcion)
+        public async Task<IActionResult> Editar(int id, [Bind("Id, IdAlumno, Carrera")] Inscripcion inscripcion)
         {
             if (id != inscripcion.Id)
             {
