@@ -58,7 +58,7 @@ namespace u3_aspnetcore
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Inscripciones}/{action=ListadoRegistos}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
