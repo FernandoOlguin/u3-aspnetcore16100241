@@ -69,7 +69,7 @@ namespace u3_aspnetcore.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AgragarRegistro([Bind("Id,IdAlumno,Carrera")] Inscripcion inscripcion)
+        public async Task<IActionResult> AgregarRegistro([Bind("Id,IdAlumno,Carrera")] Inscripcion inscripcion)
         {
             if (ModelState.IsValid)
             {
