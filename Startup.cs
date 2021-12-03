@@ -30,10 +30,11 @@ namespace u3_aspnetcore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            //services.AddDbContext<NorthwindContext>(opts => {
-            //    opts.UseSqlServer(
-            //    Configuration["ConnectionStrings:NorthwindConnection"]);
-            //});
+            services.AddDbContext<InscripcionesContext>(opts =>
+            {
+                opts.UseSqlServer(
+                Configuration["ConnectionStrings:Connection"]);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

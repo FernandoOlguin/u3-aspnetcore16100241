@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Inscripcion>
+
+@{
+    ViewData["Title"] = "ListadoRegistros";
+}
+
+<h1>ListadoRegistros</h1>
+
+<p>
+    <a asp-action="AgregarRegistro">AgregarRegistro</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdAlumno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Carrera)
+            </th>
+          
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdAlumno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Carrera)
+                </td>
+                
+                <td>
+                    <a asp-action="Editar" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-action="Eliminar" asp-route-id="@item.Id">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
