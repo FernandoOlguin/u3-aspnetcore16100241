@@ -7,6 +7,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using u3_aspnetcore.Models;
 
 namespace u3_aspnetcore
 {
@@ -23,6 +30,10 @@ namespace u3_aspnetcore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            //services.AddDbContext<NorthwindContext>(opts => {
+            //    opts.UseSqlServer(
+            //    Configuration["ConnectionStrings:NorthwindConnection"]);
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
