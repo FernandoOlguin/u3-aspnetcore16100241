@@ -69,7 +69,7 @@ namespace u3_aspnetcore.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AgrrgarRegistro([Bind("Id,IdAlumno,Carrera")] Inscripcion inscripcion)
+        public async Task<IActionResult> AgragarRegistro([Bind("Id,IdAlumno,Carrera")] Inscripcion inscripcion)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,6 @@ namespace u3_aspnetcore.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ReportsTo"] = new SelectList(db.Inscripcions, "Id", "IdAlumno", "Carrera");
-            //ViewBag.Inscripcions = new SelectList(db.Inscripcions, "Id", "IdAlumno", "Carrera");
             return View("RegistroExitoso", inscripcion);
         }
 
@@ -122,7 +121,7 @@ namespace u3_aspnetcore.Controllers
             return View(inscripcion);
         }
         [HttpPost]
-        public IActionResult Proveedor(int? id)
+        public IActionResult Eliminar(int? id)
         {
             if (id == null)
             {
@@ -133,10 +132,13 @@ namespace u3_aspnetcore.Controllers
 
             if (isncrip == null)
             {
-                return NotFound();
-            }
+                db.Remove(isncrip);
+                db.SaveChanges();
+                return RedirectToAction(nameof(ListadoRegistros));
 
+            }
             return View("ListadoRegistros");
+            
         }
 
 
